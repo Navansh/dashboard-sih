@@ -13,9 +13,8 @@ import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import ReportsSidebar from "../contacts/reportsSidebar";
-import items from "../../data/reports.json";
+import { tableReports } from "../../data/reports";
 import { useState } from "react";
-
 
 const Contacts = () => {
   const [age, setAge] = React.useState("");
@@ -46,78 +45,6 @@ const Contacts = () => {
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-
-  // const [values, setValues] = useState({
-  //   value1: 'Initial Value 1',
-  //   value2: 'Initial Value 2',
-  //   value3: 'Initial Value 3',
-  // });
-
-  // const handleButtonClick = () => {
-  //   // Update the values when the button is clicked
-  //   setValues({
-  //     value1: {
-  //       "Date": "23 Jul 2021",
-  //       "Name": "Goyal Ashok Kumar",
-  //       "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //       "SettingOutAndWorkingDrawing": "Satisfactory",
-  //       "SiteClearanceAndGrubbing": "Satisfactory",
-  //       "QualityArrangement": "Satisfactory",
-  //       "Geometrics": "Satisfactory",
-  //       "EarthWorkAndSubgradeInEmbankmentCutting": "Satisfactory",
-  //       "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //       "SubBase": "Satisfactory",
-  //       "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //       "BituminousLayerPremixCarpetPMC": "Not Applicable",
-  //       "Shoulders": "Not Applicable",
-  //       "CrossDrainageWorksCausewaysAndCulvertsUpto6MSpan": "Not Applicable",
-  //       "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //       "CCSemirigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //       "RoadFurnitureAndMarkings": "Not Applicable",
-  //       "OverallGrading": "Satisfactory"
-  //     },
-  //     value2: {
-  //       "Date": "28 Sep 2021",
-  //       "Name": "Chaudhary P P",
-  //       "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //       "SettingOutAndWorkingDrawing": "Satisfactory",
-  //       "SiteClearanceAndGrubbing": "Satisfactory",
-  //       "QualityArrangement": "Satisfactory",
-  //       "Geometrics": "Satisfactory",
-  //       "EarthWorkAndSubgradeInEmbankmentCutting": "Not Applicable",
-  //       "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //       "SubBase": "Not Applicable",
-  //       "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //       "BituminousLayerPremixCarpetPMC": "Not Applicable",
-  //       "Shoulders": "Not Applicable",
-  //       "CrossDrainageWorksCausewaysAndCulvertsUpto6MSpan": "Satisfactory",
-  //       "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //       "CCSemirigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //       "RoadFurnitureAndMarkings": "Satisfactory",
-  //       "OverallGrading": "Satisfactory"
-  //     },
-  //     value3: {
-  //       "Date": "24 April 2022",
-  //       "Name": "Goyal Ashok Kumar",
-  //       "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //       "SettingOutAndWorkingDrawing": "Satisfactory",
-  //       "SiteClearanceAndGrubbing": "Satisfactory",
-  //       "QualityArrangement": "Satisfactory",
-  //       "Geometrics": "Satisfactory",
-  //       "EarthWorkAndSubgradeInEmbankmentCutting": "Satisfactory",
-  //       "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //       "SubBase": "Satisfactory",
-  //       "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //       "BituminousLayerPremixCarpetPMC": "Not Applicable",
-  //       "Shoulders": "Not Applicable",
-  //       "CrossDrainageWorksCausewaysAndCulvertsUpto6MSpan": "Not Applicable",
-  //       "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //       "CCSemirigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //       "RoadFurnitureAndMarkings": "Not Applicable",
-  //       "OverallGrading": "Satisfactory"
-  //     },
-  //   });
-  // };
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -168,456 +95,44 @@ const Contacts = () => {
     },
   ];
 
-  // const reports = [
-  //   {
-  //     "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //     "children": [
-  //       {
-  //         "Date": "23 Jul 2021",
-  //         "children": [
-  //           {
-  //             "Date": "23 Jul 2021",
-  //             "Name": "Goyal Ashok Kumar",
-  //             "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //             "SettingOutAndWorkingDrawing": "Satisfactory",
-  //             "SiteClearanceAndGrubbing": "Satisfactory",
-  //             "QualityArrangement": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "EarthWorkAndSubgradeInEmbankmentCutting": "Satisfactory",
-  //             "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //             "SubBase": "Satisfactory",
-  //             "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //             "BituminousLayerPremixCarpetPMC": "Not Applicable",
-  //             "Shoulders": "Not Applicable",
-  //             "CrossDrainageWorksCausewaysAndCulvertsUpto6MSpan": "Not Applicable",
-  //             "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //             "CCSemirigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Not Applicable",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         "Date": "28 Sep 2021",
-  //         "children": [
-  //           {
-  //             "Date": "28 Sep 2021",
-  //             "Name": "Chaudhary P P",
-  //             "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //             "SettingOutAndWorkingDrawing": "Satisfactory",
-  //             "SiteClearanceAndGrubbing": "Satisfactory",
-  //             "QualityArrangement": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "EarthWorkAndSubgradeInEmbankmentCutting": "Not Applicable",
-  //             "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //             "SubBase": "Not Applicable",
-  //             "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //             "BituminousLayerPremixCarpetPMC": "Not Applicable",
-  //             "Shoulders": "Not Applicable",
-  //             "CrossDrainageWorksCausewaysAndCulvertsUpto6MSpan": "Satisfactory",
-  //             "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //             "CCSemirigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Satisfactory",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         "Date": "24 April 2022",
-  //         "children": [
-  //           {
-  //             "Date": "24 April 2022",
-  //             "Name": "Goyal Ashok Kumar",
-  //             "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //             "SettingOutAndWorkingDrawing": "Satisfactory",
-  //             "SiteClearanceAndGrubbing": "Satisfactory",
-  //             "QualityArrangement": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "EarthWorkAndSubgradeInEmbankmentCutting": "Satisfactory",
-  //             "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //             "SubBase": "Satisfactory",
-  //             "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //             "BituminousLayerPremixCarpetPMC": "Not Applicable",
-  //             "Shoulders": "Not Applicable",
-  //             "CrossDrainageWorksCausewaysAndCulvertsUpto6MSpan": "Not Applicable",
-  //             "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //             "CCSemirigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Not Applicable",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         "Date": "21 June 2022",
-  //         "children": [
-  //           {
-  //             "Date": "21 June 2022",
-  //             "Name": "Sukhbir Singh",
-  //             "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //             "QualityArrangements": "Satisfactory",
-  //             "QualityArrangements2": "Satisfactory",
-  //             "AttentionToQuality": "Satisfactory",
-  //             "MaintenanceOfQCRegisters": "Satisfactory",
-  //             "VerificationOfTestResults": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "RoadWayWidth": "Satisfactory",
-  //             "CarriageWayWidth": "Satisfactory",
-  //             "Camber": "Satisfactory",
-  //             "SuperElevation": "Not Applicable",
-  //             "ExtraWideningAtCurves": "Not Applicable",
-  //             "LongitudinalGradient": "Not Applicable",
-  //             "EarthworkAndSubgrade": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection": "Not Applicable",
-  //             "QualityOfMaterialForEmbankmentSubgrade": "Not Applicable",
-  //             "Compaction": "Not Applicable",
-  //             "AdequacyOfSlopeProtection": "Not Applicable",
-  //             "GranularSubBase": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection2": "Not Applicable",
-  //             "GrainSize": "Not Applicable",
-  //             "Plasticity": "Not Applicable",
-  //             "Compaction2": "Not Applicable",
-  //             "TotalThicknessOfLayer": "Not Applicable",
-  //             "BaseCourse1stLayer": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection3": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWBM": "Not Applicable",
-  //             "BaseCourse2ndLayer": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection4": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate2": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers2": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis2": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWBM2": "Not Applicable",
-  //             "BaseCourse3rdLayer": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection5": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate3": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers3": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis3": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWMM": "Not Applicable",
-  //             "BituminousSurfaceCourse": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection6": "Not Applicable",
-  //             "GradationOfAggregate": "Satisfactory",
-  //             "LayingTemperatureOfMix": "Satisfactory",
-  //             "BitumenContent": "Satisfactory",
-  //             "ThicknessOfLayer2": "Satisfactory",
-  //             "SurfaceEvenness": "Satisfactory",
-  //             "Shoulders": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection7": "Not Applicable",
-  //             "CrossDrainageWorksPipeCulvert": "Not Applicable",
-  //             "CushionOverHumePipesIncludingSizeEtc": "Not Applicable",
-  //             "QualityOfWorkmanshipSuchAsPositioningOfPipesWingWallsCushionOverHumePipesEtc": "Not Applicable",
-  //             "CrossDrainageWorksSlabCulvert": "Not Applicable",
-  //             "ThicknessOfSlab": "Not Applicable",
-  //             "QualityOfMaterialWorkmanship2": "Not Applicable",
-  //             "ProtectionWork": "Not Applicable",
-  //             "QualityOfMaterial2": "Not Applicable",
-  //             "WorkmanshipOfRetainingStructure": "Not Applicable",
-  //             "SideDrainAndCatchWaterDrainEarthen": "Not Applicable",
-  //             "GeneralQualityOfSideDrainsCatchWaterDrainsAndTheirIntegrationWithCDs": "Not Applicable",
-  //             "CementConcreteSemiRigidPavements": "Not Applicable",
-  //             "QualityOfMaterialConcreteStoneConcreteBlockPavementEtc": "Not Applicable",
-  //             "StrengthOfCCInConcretePavementConcreteBlockPavement": "Not Applicable",
-  //             "QualityOfWorkmanshipWearingSurfaceTextureAdequacyOfSettingOfConcreteJointsEdges": "Not Applicable",
-  //             "ThicknessOfLayer3": "Not Applicable",
-  //             "CementConcretePuccaDrains": "Not Applicable",
-  //             "ThicknessOfConcreteLayer": "Not Applicable",
-  //             "StrengthOfConcrete2": "Not Applicable",
-  //             "GeneralQualityOfMaterialAndWorkmanship2": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Satisfactory",
-  //             "CitizenInformationBoardMainInformatoryBoardQualityAndWhetherFixedDuringConstruction": "Satisfactory",
-  //             "WhetherTheInformationInBoardsIsGivenInLocalLanguage": "Satisfactory",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         "Date": "27 Feb 2023",
-  //         "children": [
-  //           {
-  //             "Date": "27 Feb 2023",
-  //             "Name": "Sidhu Baltej Singh",
-  //             "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //             "QualityArrangements": "Satisfactory",
-  //             "QualityArrangements2": "Satisfactory",
-  //             "AttentionToQuality": "Satisfactory",
-  //             "MaintenanceOfQCRegisters": "Satisfactory",
-  //             "VerificationOfTestResults": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "RoadWayWidth": "Satisfactory",
-  //             "CarriageWayWidth": "Satisfactory",
-  //             "Camber": "Satisfactory",
-  //             "SuperElevation": "Satisfactory",
-  //             "ExtraWideningAtCurves": "Satisfactory",
-  //             "LongitudinalGradient": "Not Applicable",
-  //             "EarthworkAndSubgrade": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection": "Not Applicable",
-  //             "QualityOfMaterialForEmbankmentSubgrade": "Not Applicable",
-  //             "Compaction": "Not Applicable",
-  //             "AdequacyOfSlopeProtection": "Not Applicable",
-  //             "GranularSubBase": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection2": "Not Applicable",
-  //             "GrainSize": "Not Applicable",
-  //             "Plasticity": "Not Applicable",
-  //             "Compaction2": "Not Applicable",
-  //             "TotalThicknessOfLayer": "Not Applicable",
-  //             "BaseCourse1stLayer": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection3": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWBM": "Not Applicable",
-  //             "BaseCourse2ndLayer": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection4": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate2": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers2": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis2": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWBM2": "Not Applicable",
-  //             "BaseCourse3rdLayer": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection5": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate3": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers3": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis3": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWMM": "Not Applicable",
-  //             "BituminousSurfaceCourse": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection6": "Satisfactory",
-  //             "GradationOfAggregate": "Satisfactory",
-  //             "LayingTemperatureOfMix": "Satisfactory",
-  //             "BitumenContent": "Satisfactory",
-  //             "ThicknessOfLayer2": "Satisfactory",
-  //             "SurfaceEvenness": "Satisfactory",
-  //             "Shoulders": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection7": "Not Applicable",
-  //             "CrossDrainageWorksPipeCulvert": "Satisfactory",
-  //             "CushionOverHumePipesIncludingSizeEtc": "Satisfactory",
-  //             "QualityOfWorkmanshipSuchAsPositioningOfPipesWingWallsCushionOverHumePipesEtc": "Satisfactory",
-  //             "CrossDrainageWorksSlabCulvert": "Not Applicable",
-  //             "ThicknessOfSlab": "Not Applicable",
-  //             "QualityOfMaterialWorkmanship2": "Not Applicable",
-  //             "ProtectionWork": "Satisfactory",
-  //             "QualityOfMaterial2": "Satisfactory",
-  //             "WorkmanshipOfRetainingStructure": "Satisfactory",
-  //             "SideDrainAndCatchWaterDrainEarthen": "Not Applicable",
-  //             "GeneralQualityOfSideDrainsCatchWaterDrainsAndTheirIntegrationWithCDs": "Not Applicable",
-  //             "CementConcreteSemiRigidPavements": "Not Applicable",
-  //             "QualityOfMaterialConcreteStoneConcreteBlockPavementEtc": "Not Applicable",
-  //             "StrengthOfCCInConcretePavementConcreteBlockPavement": "Not Applicable",
-  //             "QualityOfWorkmanshipWearingSurfaceTextureAdequacyOfSettingOfConcreteJointsEdges": "Not Applicable",
-  //             "ThicknessOfLayer3": "Not Applicable",
-  //             "CementConcretePuccaDrains": "Satisfactory",
-  //             "ThicknessOfConcreteLayer": "Not Applicable",
-  //             "StrengthOfConcrete2": "Not Applicable",
-  //             "GeneralQualityOfMaterialAndWorkmanship2": "Satisfactory",
-  //             "RoadFurnitureAndMarkings": "Satisfactory",
-  //             "CitizenInformationBoardMainInformatoryBoardQualityAndWhetherFixedDuringConstruction": "Satisfactory",
-  //             "WhetherTheInformationInBoardsIsGivenInLocalLanguage": "Satisfactory",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         "Date": "30 Nov 2023",
-  //         "children": [
-  //           {
-  //             "Date": "30 Nov 2023",
-  //             "Name": "Sidhu Baltej Singh",
-  //             "Road": "T13-Balluana to jhumba upto block boundary via chughe kalan",
-  //             "QualityArrangements": "Satisfactory",
-  //             "QualityArrangements2": "Satisfactory",
-  //             "AttentionToQuality": "Satisfactory",
-  //             "MaintenanceOfQCRegisters": "Satisfactory",
-  //             "VerificationOfTestResults": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "RoadWayWidth": "Satisfactory",
-  //             "CarriageWayWidth": "Satisfactory",
-  //             "Camber": "Satisfactory",
-  //             "SuperElevation": "Satisfactory",
-  //             "ExtraWideningAtCurves": "Satisfactory",
-  //             "LongitudinalGradient": "Not Applicable",
-  //             "EarthworkAndSubgrade": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection": "Not Applicable",
-  //             "QualityOfMaterialForEmbankmentSubgrade": "Not Applicable",
-  //             "Compaction": "Not Applicable",
-  //             "AdequacyOfSlopeProtection": "Not Applicable",
-  //             "GranularSubBase": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection2": "Not Applicable",
-  //             "GrainSize": "Satisfactory",
-  //             "Plasticity": "Satisfactory",
-  //             "Compaction2": "Satisfactory",
-  //             "TotalThicknessOfLayer": "Satisfactory",
-  //             "BaseCourse1stLayer": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection3": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate": "Satisfactory",
-  //             "PlasticityOfCrushableAggregate": "Satisfactory",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis": "Satisfactory",
-  //             "ThicknessOfEveryLayerOfWBM": "Satisfactory",
-  //             "BaseCourse2ndLayer": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection4": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate2": "Satisfactory",
-  //             "PlasticityOfCrushableAggregate2": "Satisfactory",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis2": "Satisfactory",
-  //             "ThicknessOfEveryLayerOfWBM2": "Satisfactory",
-  //             "BaseCourse3rdLayer": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection5": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate3": "Satisfactory",
-  //             "PlasticityOfCrushableAggregate3": "Satisfactory",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis3": "Satisfactory",
-  //             "ThicknessOfEveryLayerOfWMM": "Satisfactory",
-  //             "BituminousSurfaceCourse": "Satisfactory",
-  //             "AssessmentOfNewTechnologySection6": "Not Applicable",
-  //             "GradationOfAggregate": "Satisfactory",
-  //             "LayingTemperatureOfMix": "Satisfactory",
-  //             "BitumenContent": "Satisfactory",
-  //             "ThicknessOfLayer2": "Satisfactory",
-  //             "SurfaceEvenness": "Satisfactory",
-  //             "Shoulders": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection7": "Not Applicable",
-  //             "CrossDrainageWorksPipeCulvert": "Satisfactory",
-  //             "CushionOverHumePipes": "Satisfactory",
-  //             "QualityOfWorkmanship": "Satisfactory",
-  //             "CrossDrainageWorksSlabCulvert": "Not Applicable",
-  //             "ThicknessOfSlab": "Not Applicable",
-  //             "QualityOfMaterialWorkmanship": "Not Applicable",
-  //             "ProtectionWork": "Satisfactory",
-  //             "QualityOfMaterial2": "Satisfactory",
-  //             "WorkmanshipOfRetainingStructure": "Satisfactory",
-  //             "SideDrainAndCatchWaterDrainEarthen": "Satisfactory",
-  //             "GeneralQualityOfSideDrainsCatchWaterDrains": "Satisfactory",
-  //             "CementConcreteSemiRigidPavements": "Not Applicable",
-  //             "QualityOfMaterialConcreteStoneConcreteBlockPavement": "Not Applicable",
-  //             "StrengthOfCCInConcretePavementConcreteBlockPavement": "Not Applicable",
-  //             "QualityOfWorkmanshipWearingSurfaceTextureAdequacyOfSettingOfConcreteJointsEdges": "Not Applicable",
-  //             "ThicknessOfLayer2": "Not Applicable",
-  //             "CementConcretePuccaDrains": "Not Applicable",
-  //             "ThicknessOfConcreteLayer": "Not Applicable",
-  //             "StrengthOfConcrete": "Not Applicable",
-  //             "GeneralQualityOfMaterialAndWorkmanship": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Satisfactory",
-  //             "CitizenInformationBoardMainInformatoryBoardQualityAndWhetherFixedDuringConstruction": "Satisfactory",
-  //             "WhetherTheInformationInBoardsIsGivenInLocalLanguage": "Satisfactory",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //     ]
-  //   },
-  //   {
-  //     "Road": "T04-Aklia to Dyalpura Mirja via Bhagta, Gurudwara Jandsar Sahib",
-  //     "children": [
-  //       {
-  //         "Date": "23 Jan 2022",
-  //         "children": [
-  //           {
-  //             "Date": "23 January 2022",
-  //             "Name": "Chaudhary P P",
-  //             "Road": "T04-Aklia to Dyalpura Mirja via Bhagta, Gurudwara Jandsar Sahib",
-  //             "SettingOutAndWorkingDrawing": "Satisfactory",
-  //             "SiteClearanceAndGrubbing": "Satisfactory",
-  //             "QualityArrangement": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "EarthWorkAndSubGradeInEmbankmentCutting": "Satisfactory",
-  //             "EarthWorkCuttingInHillyRollingTerrain": "Not Applicable",
-  //             "SubBase": "Satisfactory",
-  //             "BaseCourseWaterBoundMacadam": "Satisfactory",
-  //             "BituminousLayerPremixCarpetPMC_SurfaceDressingSD": "Not Applicable",
-  //             "Shoulders": "Not Applicable",
-  //             "CrossDrainageWorksCausewaysOfAllSpansAndCulvertsUpTo6MSpan": "Not Applicable",
-  //             "SideDrainAndCatchWaterDrain": "Not Applicable",
-  //             "CC_SemiRigidPavementsAndAssociatedPukkaDrains": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Satisfactory",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       },
-  //       {
-  //         "Date": "27 Jun 2022",
-  //         "children": [
-  //           {
-  //             "Date": "27 Jun 2022",
-  //             "Name": "Chaudhary P P",
-  //             "Road": "T04-Aklia to Dyalpura Mirja via Bhagta, Gurudwara Jandsar Sahib",
-  //             "QualityArrangements": "Satisfactory",
-  //             "QualityArrangements": "Satisfactory",
-  //             "AttentionToQuality": "Satisfactory",
-  //             "MaintenanceOfQCRegisters": "Satisfactory",
-  //             "VerificationOfTestResults": "Satisfactory",
-  //             "Geometrics": "Satisfactory",
-  //             "RoadWayWidth": "Satisfactory",
-  //             "CarriageWayWidth": "Satisfactory",
-  //             "Camber": "Satisfactory",
-  //             "SuperElevation": "Not Applicable",
-  //             "ExtraWideningAtCurves": "Not Applicable",
-  //             "LongitudinalGradientInCaseOfRoadInHillyRollingTerrain": "Not Applicable",
-  //             "EarthworkAndSubgrade": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection": "Not Applicable",
-  //             "QualityOfMaterialForEmbankmentSubgrade": "Not Applicable",
-  //             "Compaction": "Not Applicable",
-  //             "AdequacyOfSlopeProtectionInCaseOfHighEmbankmentsHillyRollingTerrain": "Not Applicable",
-  //             "GranularSubBaseGSB": "Not Applicable",
-  //             "GrainSize": "Not Applicable",
-  //             "Plasticity": "Not Applicable",
-  //             "Compaction": "Not Applicable",
-  //             "TotalThicknessOfLayer": "Not Applicable",
-  //             "BaseCourse1stLayer": "Not Applicable",
-  //             "GrainSizeOfCoarseAggregate": "Not Applicable",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers": "Not Applicable",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis": "Not Applicable",
-  //             "ThicknessOfEveryLayerOfWBM": "Not Applicable",
-  //             "BaseCourse2ndLayer": "Satisfactory",
-  //             "GrainSizeOfCoarseAggregate": "Satisfactory",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers": "Satisfactory",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis": "Satisfactory",
-  //             "ThicknessOfEveryLayerOfWBM": "Satisfactory",
-  //             "BaseCourse3rdLayer": "Satisfactory",
-  //             "GrainSizeOfCoarseAggregate": "Satisfactory",
-  //             "PlasticityOfCrushableAggregateUsedAsFillers": "Satisfactory",
-  //             "AdequacyOfCompactionThroughVolumetricAnalysis": "Satisfactory",
-  //             "ThicknessOfEveryLayerOfWMM": "Satisfactory",
-  //             "BituminousSurfaceCourse": "Not Applicable",
-  //             "GradationOfAggregate": "Not Applicable",
-  //             "LayingTemperatureOfMix": "Not Applicable",
-  //             "BitumenContent": "Not Applicable",
-  //             "ThicknessOfLayer": "Not Applicable",
-  //             "SurfaceEvenness": "Not Applicable",
-  //             "Shoulders": "Not Applicable",
-  //             "AssessmentOfNewTechnologySection": "Not Applicable",
-  //             "CrossDrainageWorksPipeCulvert": "Not Applicable",
-  //             "CushionOverHumePipesIncludingSizeEtc": "Not Applicable",
-  //             "QualityOfWorkmanshipSuchAsPositioningOfPipesWingWallsCushionOverHumePipesEtc": "Not Applicable",
-  //             "CrossDrainageWorksSlabCulvert": "Not Applicable",
-  //             "ThicknessOfSlab": "Not Applicable",
-  //             "QualityOfMaterialWorkmanship": "Not Applicable",
-  //             "ProtectionWork": "Not Applicable",
-  //             "QualityOfMaterial": "Not Applicable",
-  //             "WorkmanshipOfRetainingStructure": "Not Applicable",
-  //             "SideDrainAndCatchWaterDrainEarthen": "Not Applicable",
-  //             "GeneralQualityOfSideDrainsCatchWaterDrainsAndTheirIntegrationWithCDs": "Not Applicable",
-  //             "CementConcreteSemiRigidPavements": "Not Applicable",
-  //             "QualityOfMaterialConcreteStoneConcreteBlockPavementEtc": "Not Applicable",
-  //             "StrengthOfCCInConcretePavementConcreteBlockPavement": "Not Applicable",
-  //             "QualityOfWorkmanshipWearingSurfaceTextureAdequacyOfSettingOfConcreteJointsEdgesEtc": "Not Applicable",
-  //             "ThicknessOfLayer": "Not Applicable",
-  //             "CementConcretePuccaDrains": "Not Applicable",
-  //             "ThicknessOfConcreteLayer": "Not Applicable",
-  //             "StrengthOfConcrete": "Not Applicable",
-  //             "GeneralQualityOfMaterialAndWorkmanship": "Not Applicable",
-  //             "RoadFurnitureAndMarkings": "Satisfactory",
-  //             "CitizenInformationBoardMainInformatoryBoardQualityAndWhetherFixedDuringConstruction": "Satisfactory",
-  //             "WhetherTheInformationInBoardsIsGivenInLocalLanguage": "Satisfactory",
-  //             "OverallGrading": "Satisfactory"
-  //           }
-  //         ]
-  //       }
-  //     ]
-  //   },
-  // ]
+  //create a downloader function for a file stored on local machine
+  const handleDownload = async () => {
+    try {
+      // Replace 'path/to/your/file.pdf' with the actual path to your PDF file
+      const filePath = '/Users/navansh/Web_Dev_Projects/SIH/dashboard-sih/public/reportas.pdf';
 
-  const externalLink =
-    "file:///C:/Users/mitul/Desktop/T13-Balluana%20to%20Jhumba%20up%20to%20block%20boundary%20via%20Chughe%20.pdf";
-  const openPDF = () => {
-    window.open(externalLink, "_blank");
+      // Fetch the PDF file content using the local path
+      const response = await fetch(filePath);
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch PDF file');
+      }
+
+      // Convert the response to a blob
+      const pdfBlob = await response.blob();
+
+      // Create a temporary link element
+      const link = document.createElement("a");
+
+      // Set the href attribute to the object URL of the Blob
+      link.href = URL.createObjectURL(pdfBlob);
+
+      // Set the download attribute to the desired PDF file name
+      link.download = "report.pdf"; // Replace with your desired PDF file name
+
+      // Append the link to the body (required for Firefox)
+      document.body.appendChild(link);
+
+      // Trigger a click event on the link to start the download
+      link.click();
+
+      // Remove the link from the body after the download
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading PDF:', error);
+    }
   };
-
+  
   return (
     <Box m="20px">
       <Header
@@ -840,7 +355,7 @@ const Contacts = () => {
             <Box width="25%">
               <Typography className="border-black">
                 <div className="sidebar">
-                  {items.map((item, index) => (
+                  {tableReports.map((item, index) => (
                     <ReportsSidebar key={index} item={item} />
                   ))}
                 </div>
@@ -880,12 +395,12 @@ const Contacts = () => {
                 },
               }}
             >
-              {/* <DataGrid
+              <DataGrid
                 rows={mockDataContacts}
                 columns={columns}
                 components={{ Toolbar: GridToolbar }}
-              /> */}
-              <h1>Server Fetching Error...</h1>
+              />
+              {/* <h1>Server Fetching Error...</h1> */}
             </Box>
           </Stack>
           <Box>
@@ -898,14 +413,13 @@ const Contacts = () => {
                 padding: "10px 20px",
                 margin: "-2500px 300px",
               }}
-              onClick={openPDF}
-            >
+              onClick={handleDownload}
+              >
               Download Report
             </Button>
           </Box>
         </div>
       )}
-
     </Box>
   );
 };
