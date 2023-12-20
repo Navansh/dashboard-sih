@@ -44,7 +44,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="DASHBOARD" subtitle="State: Punjab" />
 
         <Box>
           <Button
@@ -78,7 +78,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
+            title="1342.82"
             subtitle="Total Roads (in KM)"
             progress="0.75"
             increase="+14%"
@@ -97,7 +97,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
+            title="12.03 Km"
             subtitle="Ongoing"
             progress="0.50"
             increase="+21%"
@@ -116,7 +116,7 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
+            title="1330.79"
             subtitle="Completed"
             progress="0.30"
             increase="+5%"
@@ -173,7 +173,7 @@ const Dashboard = () => {
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                59,342.32 KM
+                1342.82 KM
               </Typography>
             </Box>
             <Box>
@@ -203,6 +203,10 @@ const Dashboard = () => {
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />
+
+
+            
+            <svg xmlns="https://datawrapper.dwcdn.net/hN4gS/1/" width="497.1875" height="200" role="img"><rect width="497.1875" height="200" fill="transparent"></rect></svg>
           </Box>
         </Box>
 
