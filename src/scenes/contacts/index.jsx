@@ -629,7 +629,7 @@ const Contacts = () => {
           <Typography variant="text" sx={{ marginY: 1 }} fontWeight={600}>
             Select District
           </Typography>
-          <FormControl sx={{ m: 1, minWidth: 150 }}>
+          <FormControl sx={{ m: 50, minWidth: 150 }}>
             <InputLabel id="demo-simple-select-helper-label">
               Select District
             </InputLabel>
