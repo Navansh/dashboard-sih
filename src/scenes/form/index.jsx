@@ -204,51 +204,55 @@ const Form = () => {
     //   </Formik>
     // </Box>
 
-    <div className="main">
-      <div className="chats">
-        {messages.map((message) => {
-          return (
-            <div className={`chat ${message.isBot ? "bot" : ""}`}>
-              <img
-                src={message.isBot ? logoImage : adminImage}
-                className="chatimg"
-                alt=""
-              />
-              <p className="txt">{message.text}</p>
-            </div>
-          );
-        })}
+    // <div className="main">
+    //   <div className="chats">
+    //     {messages.map((message) => {
+    //       return (
+    //         <div className={`chat ${message.isBot ? "bot" : ""}`}>
+    //           <img
+    //             src={message.isBot ? logoImage : adminImage}
+    //             className="chatimg"
+    //             alt=""
+    //           />
+    //           <p className="txt">{message.text}</p>
+    //         </div>
+    //       );
+    //     })}
 
-        <div ref={msgEnd}></div>
-      </div>
+    //     <div ref={msgEnd}></div>
+    //   </div>
 
-      <div className="chatFooter">
-        <div className="inp">
-          <input
-            type="text"
-            placeholder="Send a message"
-            value={chat}
-            onChange={(e) => {
-              setChat(e.target.value);
-            }}
-            onKeyDown={handleEnterKey}
-          />
-          <input type="file" onChange={handleImageChange} />
-          {selectedImage && (
-            <div>
-              <p>Selected Image:</p>
-              <img src={URL.createObjectURL(selectedImage)} alt="Selected" />
-            </div>
-          )}
+    //   <div className="chatFooter">
+    //     <div className="inp">
+    //       <input
+    //         type="text"
+    //         placeholder="Send a message"
+    //         value={chat}
+    //         onChange={(e) => {
+    //           setChat(e.target.value);
+    //         }}
+    //         onKeyDown={handleEnterKey}
+    //       />
+    //       <input type="file" onChange={handleImageChange} />
+    //       {selectedImage && (
+    //         <div>
+    //           <p>Selected Image:</p>
+    //           <img src={URL.createObjectURL(selectedImage)} alt="Selected" />
+    //         </div>
+    //       )}
 
-          <button
-            className="send ml-6"
-            onClick={handleSend}
-          >
-            <img src={sendImage} className="scale-[5]" alt="" />
-          </button>
-        </div>
-      </div>
+    //       <button
+    //         className="send ml-6"
+    //         onClick={handleSend}
+    //       >
+    //         <img src={sendImage} className="scale-[5]" alt="" />
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+
+    <div>
+      
     </div>
   );
 };

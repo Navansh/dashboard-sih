@@ -78,7 +78,7 @@ const Invoices = () => {
         <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
       </Box> */}
 
-      <ChatUi />
+      {/* <ChatUi /> */}
     </Box>
   );
 };
